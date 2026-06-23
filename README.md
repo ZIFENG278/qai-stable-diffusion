@@ -13,12 +13,12 @@ Run Stable Diffusion v1.5 QNN models with `qai_appbuilder` on Qualcomm v73 HTP N
 
 QNN version == 2.46
 
-[Download from Modelscope](https://modelscope.cn/collections/radxa/stable-diffusion-v1-5-v73-qnn)
+[Download models from Modelscope](https://modelscope.cn/collections/radxa/stable-diffusion-v1-5-v73-qnn)
 
-- [DreamShaper_8](https://modelscope.cn/models/radxa/DreamShaper_8_v73_qnn_2.46/summary) [civitai link](https://civitai.red/models/4384/dreamshaper?modelVersionId=128713)
-- [epiCRealism_Natural_Sin_RC1_VAE](https://modelscope.cn/models/radxa/epiCRealism_Natural_Sin_RC1_VAE_v73_qnn_2.46) [civitai link](https://civitai.red/models/25694/epicrealism?modelVersionId=143906)
-- [majicMIX_realistic_v7](https://modelscope.cn/models/radxa/majicMIX_realistic_v7_v73_qnn_2.46) [civitai link](https://civitai.red/models/43331/majicmix-realistic?modelVersionId=176425)
-- [Lucky_Strike_Mix_Lovely_Lady_V1.05](https://modelscope.cn/models/radxa/Lucky_Strike_Mix_Lovely_Lady_V1.05_v73_qnn_2.46) [civitai link](https://civitai.red/models/13034/lucky-strike-mix?modelVersionId=127680)
+- [**DreamShaper_8**](https://modelscope.cn/models/radxa/DreamShaper_8_v73_qnn_2.46/summary) | [[civitai link]](https://civitai.red/models/4384/dreamshaper?modelVersionId=128713)
+- [**epiCRealism_Natural_Sin_RC1_VAE**](https://modelscope.cn/models/radxa/epiCRealism_Natural_Sin_RC1_VAE_v73_qnn_2.46) | [[civitai link]](https://civitai.red/models/25694/epicrealism?modelVersionId=143906)
+- [**majicMIX_realistic_v7**](https://modelscope.cn/models/radxa/majicMIX_realistic_v7_v73_qnn_2.46) | [[civitai link]](https://civitai.red/models/43331/majicmix-realistic?modelVersionId=176425)
+- [**Lucky_Strike_Mix_Lovely_Lady_V1.05**](https://modelscope.cn/models/radxa/Lucky_Strike_Mix_Lovely_Lady_V1.05_v73_qnn_2.46) | [[civitai link]](https://civitai.red/models/13034/lucky-strike-mix?modelVersionId=127680)
 
 
 
@@ -26,8 +26,7 @@ QNN version == 2.46
 
 ### clone the repo
 ```bash
-git clone https://github.com/ZIFENG278/qai-stable-diffusion.git
-cd qai-stable-diffusion
+git clone https://github.com/ZIFENG278/qai-stable-diffusion.git && cd qai-stable-diffusion
 ```
 
 ### setup the env
@@ -35,9 +34,15 @@ cd qai-stable-diffusion
 ```bash
 sudo apt install python3-venv
 python3 -m venv .venv 
+source .venv/bin/activate
+```
+
+```bash
 pip3 install -r requirements.txt
 pip3 install https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/radxa-dev-2.38.0/qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+```
 
+```bash
 export ADSP_LIBRARY_PATH=$(pwd)/qnn_libs
 ```
 
@@ -78,7 +83,7 @@ README.md                This document
 
 ## Required Model Directory
 
-Pass a notebook-exported SD1.5 model directory with `--model-dir`.
+Pass a model directory with `--model-dir`.
 
 The directory must contain:
 
@@ -96,8 +101,6 @@ tokenizer/
 ```
 
 or let the script use/download the `openai/clip-vit-large-patch14` tokenizer cache under `./models`.
-
-The serialized model files and `time_embedding.pt` must come from the same notebook export/checkpoint.
 
 
 ## Run
